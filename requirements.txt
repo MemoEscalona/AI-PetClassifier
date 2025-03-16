@@ -1,0 +1,24 @@
+# Librerías de manipulación de datos
+numpy
+pandas
+
+# Visualización de datos
+matplotlib
+
+# Machine Learning y preprocesamiento de datos
+scikit-learn
+
+# TensorFlow y Keras (para construir y entrenar la red neuronal)
+tensorflow
+
+# Manejo de imágenes y aumento de datos
+pillow  # Necesario para cargar imágenes en Keras
+opencv-python  # Alternativa para manejo de imágenes
+tensorflow-hub  # (Opcional, si usas modelos preentrenados)
+
+# Flask (para la API web)
+flask
+werkzeug  # Manejo de archivos en Flask
+
+# Servidor en producción para Flask
+gunicorn

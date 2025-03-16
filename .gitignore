@@ -1,0 +1,23 @@
+# 🚀 Archivos y carpetas generadas por Python
+__pycache__/
+*.pyc
+*.pyo
+
+
+# 🚀 Dependencias de Python
+venv/
+.env
+
+# 🚀 Archivos de logs y caché
+logs/
+*.log
+*.sqlite
+.DS_Store
+Thumbs.db
+
+# 🚀 Archivos de Docker
+*.pid
+*.sock
+docker-compose.override.yml
+
+archive.zip
