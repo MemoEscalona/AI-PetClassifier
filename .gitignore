@@ -21,3 +21,4 @@ Thumbs.db
 docker-compose.override.yml
 
 archive.zip
+models/*

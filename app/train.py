@@ -1,6 +1,8 @@
+import matplotlib.pyplot as plt  # ✅ Agregar esta línea
 from app.model import construir_modelo
 from app.data_preprocessing import preprocesar_datos
 from app.config import RUTA_MODELO, EPOCHS
+import os
 
 def entrenar_modelo():
     # Preparar los datos
@@ -34,6 +36,7 @@ def entrenar_modelo():
     print("✅ ¡Entrenamiento completado!")
 
 def graficar_historial(historial):
+    print("Historial del entrenamiento:", historial.history)
     """ Genera gráficos de pérdida y precisión del entrenamiento """
     plt.figure(figsize=(12, 5))
 
@@ -45,6 +48,9 @@ def graficar_historial(historial):
     plt.ylabel('Pérdida')
     plt.title('Evolución de la Pérdida')
     plt.legend()
+    plt.ylim(0, 1)  # Fija los valores entre 0 y 1 para evitar problemas de escalado
+    plt.xlim(0, EPOCHS)  # Usa el número total de épocas en el eje X
+
 
     # Gráfico de Precisión
     plt.subplot(1, 2, 2)
@@ -54,9 +60,14 @@ def graficar_historial(historial):
     plt.ylabel('Precisión')
     plt.title('Evolución de la Precisión')
     plt.legend()
+    plt.ylim(0, 1)  # Fija los valores entre 0 y 1 para evitar problemas de escalado
+    plt.xlim(0, EPOCHS)  # Usa el número total de épocas en el eje X
 
-    # Mostrar los gráficos
-    plt.show()
+    # Guardar la gráfica en un archivo dentro del contenedor
+    ruta_guardado = "/app/models/historial_entrenamiento.png"
+    os.makedirs(os.path.dirname(ruta_guardado), exist_ok=True)
+    plt.savefig(ruta_guardado)
+    print(f"✅ Gráfica guardada en {ruta_guardado}")
 # Si se ejecuta directamente este archivo, se entrena el modelo
 if __name__ == "__main__":
     entrenar_modelo()
